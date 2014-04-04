@@ -1,5 +1,38 @@
 <h1> Add a Building </h1>
 
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Home</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="left">
+      <li class="has-dropdown">
+        <a href="/buildings">Buildings</a>
+        <ul class="dropdown">
+          <li><a href="/buildings/new">New</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="top-bar-section">
+    <ul class="left">
+      <li class="has-dropdown">
+        <a href="/owners">Owners</a>
+        <ul class="dropdown">
+          <li><a href="/owners/new">New</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>
+<br>
+
+
   <%= simple_form_for @building do |f| %>
     <%= f.input :address  %>
     <%= f.input :city  %>
