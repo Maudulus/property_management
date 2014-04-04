@@ -12,4 +12,6 @@ describe Owner do
   it { should have_valid(:last_name).when('Yeats')}
   it { should_not have_valid(:last_name).when(123)}
 
+  it { should have_many :buildings}
+
 end
