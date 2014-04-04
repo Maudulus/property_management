@@ -51,4 +51,10 @@ feature 'real estate associate adds building', %q{
     expect(Building.count).to eq(count + 2)
   end
 
+  it 'belongs to owner' do
+      owner = FactoryGirl.build(:owner)
+      building = FactoryGirl.build(:building, owner: owner)
+      expect(building.owner_id).to eql(owner.id)
+  end
+
 end

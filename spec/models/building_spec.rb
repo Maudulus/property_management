@@ -17,9 +17,3 @@ describe Building do
   it { should belong_to :owner}
 
 end
-
-  # t.string   "address",     null: false
-  #   t.string   "city",        null: false
-  #   t.string   "state",       null: false
-  #   t.integer  "zip",         null: false
-  #   t.text     "description"

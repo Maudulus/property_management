@@ -17,9 +17,19 @@ class BuildingsController < ApplicationController
     @buildings = Building.all
   end
 
+  def destroy
+    @building.destroy
+    respond_to do |format|
+      format.html { redirect_to buildings_url }
+    end
+  end
+
   protected
+  def set_building
+      @building = Building.find(params[:id])
+  end
 
   def building_params
-    params.require(:building).permit(:address, :city, :state, :zip,:description)
+    params.require(:building).permit(:address, :city, :state, :zip, :description, :owner_id)
   end
 end

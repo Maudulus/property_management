@@ -1,11 +1,43 @@
 <h1> The Owners </h1>
 <br>
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">Home</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="left">
+      <li class="has-dropdown">
+        <a href="/buildings">Buildings</a>
+        <ul class="dropdown">
+          <li><a href="/buildings/new">New</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="top-bar-section">
+    <ul class="left">
+      <li class="has-dropdown">
+        <a href="/owners">Owners</a>
+        <ul class="dropdown">
+          <li><a href="/owners/new">New</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>
+<br>
 <table>
   <tr>
     <th>First Name</th>
     <th>Last Name</th>
     <th>Email</th>
     <th>Company</th>
+    <th>ID</th>
   </tr>
     <% @owners.each do |owner|%>
   <tr>
