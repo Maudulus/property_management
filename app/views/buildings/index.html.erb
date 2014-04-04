@@ -1,0 +1,24 @@
+<h1> The Buildings </h1>
+<br>
+<table>
+  <tr>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Description</th>
+    <th>Owner ID</th>
+
+  </tr>
+    <% @buildings.each do |building|%>
+  <tr>
+    <td><%= building.address %></td>
+    <td><%= building.city %></td>
+    <td><%= building.state %></td>
+    <td><%= building.zip %></td>
+    <td><%= building.description %></td>
+    <td><%= building.owner_id %></td>
+
+</tr>
+  <% end %>
+</table>

@@ -13,6 +13,10 @@ class BuildingsController < ApplicationController
     end
   end
 
+  def index
+    @buildings = Building.all
+  end
+
   protected
 
   def building_params

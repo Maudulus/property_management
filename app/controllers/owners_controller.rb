@@ -13,6 +13,9 @@ class OwnersController < ApplicationController
     end
   end
 
+  def index
+    @owners = Owner.all
+  end
   protected
 
   def owner_params
