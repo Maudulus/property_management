@@ -20,35 +20,26 @@ feature 'real estate associate adds building', %q{
   scenario 'associate adds a building with valid attributes' do
     building1 = FactoryGirl.build(:building)
     count = Building.count
+
     visit new_building_path
     building_new_helper(building1)
     click_on 'Add Building'
 
     expect(Building.count).to eq(count + 1)
+    expect(page).to have_content 'Building Successfully Added'
+    expect(current_path).to eq new_building_path
   end
 
   scenario 'associate adds a building with invalid attributes' do
     building2 = FactoryGirl.build(:building)
     count = Building.count
+
     visit new_building_path
     building_new_helper(building2)
     fill_in 'City', with: ""
     click_on 'Add Building'
 
+    expect(page).to have_content 'Building Not Added'
     expect(Building.count).to eq(count)
   end
-
-  scenario 'associate adds two buildings in a row without having to switch pages' do
-    count = Building.count
-    building3 = FactoryGirl.build(:building)
-    building4 = FactoryGirl.build(:building)
-    visit new_building_path
-    building_new_helper(building3)
-    click_on 'Add Building'
-    building_new_helper(building4)
-    click_on 'Add Building'
-
-    expect(Building.count).to eq(count + 2)
-  end
-
 end
