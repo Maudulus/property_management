@@ -1,7 +1,9 @@
 class Owner < ActiveRecord::Base
-  has_many :buildings, dependent: :destroy
+  EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
-  validates :first_name, presence: true, format: { with: /[a-zA-Z]/, on: :create }
-  validates :last_name, presence: true, format: { with: /[a-zA-Z]/, on: :create }
-  validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+  has_many :buildings, dependent: :nullify
+
+  validates :first_name, presence: true, format: { with: /\A[a-zA-Z]+\z/ }
+  validates :last_name, presence: true, format: { with: /\A[a-zA-Z]+\z/ }
+  validates :email, presence: true, format: { with: EMAIL_REGEX }
 end

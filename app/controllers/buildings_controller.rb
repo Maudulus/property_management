@@ -9,7 +9,8 @@ class BuildingsController < ApplicationController
     if @building.save
       redirect_to new_building_path, notice: 'Building Successfully Added'
     else
-      redirect_to new_building_path, notice: 'Error: Building Not Added'
+      flash.now[:error] = 'Building Not Added'
+      render :new
     end
   end
 

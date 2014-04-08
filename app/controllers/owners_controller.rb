@@ -6,10 +6,12 @@ class OwnersController < ApplicationController
 
   def create
     @owner = Owner.create(owner_params)
+
     if @owner.save
       redirect_to new_owner_path, notice: 'Owner Successfully Added'
     else
-      redirect_to new_owner_path, notice: 'Error: Owner Not Added'
+      flash.now[:error] = 'Owner Not Added'
+      render :new
     end
   end
 
